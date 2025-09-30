@@ -50,3 +50,18 @@
     1. github 올라가면 git으로 관리되지 않는 것
     2. github 원격 저장소
     3. git 로컬 저장소
+
+14. 원격 저장소 등록
+    1. git remote add 식별자 원격레포주소
+    2. git remote add origin 원격레포주소
+    3. git remote add stream 원격레포주소
+    4. git remote -v
+
+15. git push
+    1. git push -u 원격레포식별자 브랜치 이름
+    2. origin -> 원격 레포식별자
+    3. main -> 규칙
+    4. git push -u origin main
+       1. permission
+          1. remote 등록 주소가 잘못되지 않았는지 확인
+          2. vscode에 연결된 git 계정과 내가 올리려고 하는 github 계정이 일치하는지 확인
