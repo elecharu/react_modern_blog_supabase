@@ -25,3 +25,28 @@
       3-10. git commit -m "feat: 로그아웃 기능 추가"
 7. git config --global core.editor "code --wait"
 8. git config --global --unset core.editor
+9. git status
+
+10. git log
+    1. git log --oneline
+    2. git log --graph
+    3. 추천 : git log --graph --online
+
+11. 커밋 취소하는 방법(Repository -> working directory or staging area)
+    1. 커밋이 한 개 있을 때
+       1. 그냥 git을 다시 초기화 (rm -rf .git -> git init -> git add . -> git commit)
+    2. 커밋이 두 개 이상 있을 때
+       1. git reset
+          1. git reset HEAD~숫자 (ex : git reset HEAD~1 / 커밋 1개를 되돌아감)
+             1. --mixed : 기본값, 커밋 취소 + 작업 내역 Working Directory 영역에 배치
+             2. --soft: 커밋 취소 + 작업 내역을 Staging Area에 배치
+             3. --hard: 커밋 취소 + 작업 내역 삭제
+       2. 만약 소스코드가 github에 올라갔으면 reset 하면 안됨
+          1. git revert 커밋아이디 (아이디 확인은 git log --graph --online)
+12. github에 소스코드를 올릴 때
+    1. git push -u origin 브랜치명
+
+13. git !== github 같지 않다
+    1. github 올라가면 git으로 관리되지 않는 것
+    2. github 원격 저장소
+    3. git 로컬 저장소
