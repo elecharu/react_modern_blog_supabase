@@ -79,5 +79,5 @@
        5. 설정/빌드 : chore/설정빌드명
        6. 리팩토링 : refactor/리팩토리명
     5. 로그인 기능
-       1. git switch -c feature/social-login
-    6.
+       1. git switch -c feature/social-login 
+    6. main 브랜치는 직접 개발 X 
