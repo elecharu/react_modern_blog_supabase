@@ -5,10 +5,14 @@ import { useNavigate } from "react-router";
 import { useAuthStore } from "../../stores/authStore";
 // import ProfileSkeleton from "../../components/loading/ProfileSkeleton";
 import type { Profile } from "../../types/profile";
+import ProfileSkeleton from "../../components/loading/ProfileSkeleton";
 
 export default function Profile() {
   const navigate = useNavigate();
   const profile = useAuthStore((state) => state.profile);
+  const setProfile = useAuthStore((state) => state.setProfile);
+
+  const isLoading = useAuthStore((state) => state.isLoading);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState<Partial<Profile> | null>(profile);
@@ -23,8 +27,21 @@ export default function Profile() {
     }
   }
 
-  const handleSave = () => {
-    setIsEditing(false);
+  const handleSave = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("profiles")
+        .update({ ...editForm })
+        .eq("id", profile?.id || "")
+        .select()
+        .single();
+      if (error) throw error;
+      setProfile(data);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsEditing(false);
+    }
   };
 
   const handleCancel = () => {
@@ -53,6 +70,7 @@ export default function Profile() {
     },
   ];
 
+  if (isLoading) return <ProfileSkeleton />; // 로딩중일 떄 아무것도 표시 X
   return (
     <div>
       {/* <ProfileSkeleton /> */}

@@ -23,10 +23,11 @@ export const useAuthStore = create<AuthStore>()(
         isLoading: true, // 데이터 패칭 여부
         claims: null, // JWTPayload
         profile: null, // profiles 테이블 데이터
-        setProfile: (profile: Profile | null) =>
+        setProfile: (profile: Profile | null) => {
           set((state) => {
             state.profile = profile;
-          }),
+          });
+        },
         setClaims: (c: Claims) =>
           set((state) => {
             state.claims = c;
