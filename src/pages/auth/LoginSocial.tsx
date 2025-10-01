@@ -12,6 +12,9 @@ export default function LoginSocial() {
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
+        options: {
+          redirectTo: `${import.meta.env.VITE_URL}/profile-setup`,
+        },
       });
       console.log(data);
       if (error) throw error;
