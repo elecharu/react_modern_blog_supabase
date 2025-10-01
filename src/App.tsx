@@ -6,13 +6,13 @@ import BlogDetail from "./pages/blog/BlogDetail";
 import Profile from "./pages/profile/Profile";
 import BlogCreate from "./pages/blog/BlogCreate";
 import ProfileSetup from "./pages/auth/ProfileSetup";
-import { useEffect, useState } from "react";
-import supabase from "./utils/supabase";
+// import { useEffect, useState } from "react";
+// import supabase from "./utils/supabase";
 import PublicOnlyRoute from "./components/routes/PublicOnlyRoute";
 import ProtectedRoutes from "./components/routes/ProtectedRoutes";
 
 export default function App() {
-  // const [todos, setTodos] = useState([])
+  // const [todos, setTodos] = useState([]);
 
   // useEffect(() => {
   //   async function getTodos() {
