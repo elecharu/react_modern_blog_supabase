@@ -65,3 +65,19 @@
        1. permission
           1. remote 등록 주소가 잘못되지 않았는지 확인
           2. vscode에 연결된 git 계정과 내가 올리려고 하는 github 계정이 일치하는지 확인
+          3. 팀 프로젝트일 경우 초대받지 못한 사용자인지 확인
+
+16. git branch(가지)
+    1. 하나의 저장소 안에서 독립적으로 작업할 수 있는 개발 라인을 말합니다.
+    2. git checkout -b 브랜치명
+    3. git switch -c 브랜치명 (2.22 , 2.24)
+    4. git branch -v
+       1. 기능 : feature/기능명
+       2. 버그 : fix/버그명
+       3. 긴급 수정 : hotfix/긴급수정명
+       4. 문서 : docs/문서명
+       5. 설정/빌드 : chore/설정빌드명
+       6. 리팩토링 : refactor/리팩토리명
+    5. 로그인 기능
+       1. git switch -c feature/social-login
+    6.

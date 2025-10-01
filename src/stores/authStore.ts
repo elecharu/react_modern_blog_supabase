@@ -4,12 +4,13 @@ import { devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import type { Claims } from "../types/user";
 import supabase from "../utils/supabase";
+import type { Profile } from "../types/profile";
 
 type AuthStore = {
   isLoading: boolean; // 로딩 상태
   claims: Claims; // 사용자 정보
-  profile: unknown; // Profiles 테이블의 데이터
-  setProfile: (profile: unknown | null) => void;
+  profile: Profile | null; // Profiles 테이블의 데이터
+  setProfile: (profile: Profile | null) => void;
   setClaims: (c: Claims) => void;
   hydrateFromAuth: () => void;
   clearAuth: () => void;
@@ -22,9 +23,9 @@ export const useAuthStore = create<AuthStore>()(
         isLoading: true, // 데이터 패칭 여부
         claims: null, // JWTPayload
         profile: null, // profiles 테이블 데이터
-        setProfile: (profile: unknown | null) =>
+        setProfile: (profile: Profile | null) =>
           set((state) => {
-            state.profile = profile
+            state.profile = profile;
           }),
         setClaims: (c: Claims) =>
           set((state) => {
