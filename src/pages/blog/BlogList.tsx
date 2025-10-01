@@ -26,7 +26,28 @@ export default function BlogList() {
         setIsLoading(false);
       }
     };
+
     getPosts();
+
+    // 구독
+    const channel = supabase
+      .channel("posts")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "posts",
+        },
+        (payload) => {
+          console.log(payload);
+        }
+      )
+      .subscribe((state) => console.log(state));
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   return (
